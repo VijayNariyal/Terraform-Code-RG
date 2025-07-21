@@ -47,3 +47,4 @@ terraform plan
 # Apply the configuration
 terraform apply
 ```
+
