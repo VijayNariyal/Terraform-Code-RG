@@ -4,4 +4,5 @@ resource "azurerm_storage_account" "STG" {
   location                 = var.resource_group_location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  min_tls_version          = "TLS1_2"
 }
