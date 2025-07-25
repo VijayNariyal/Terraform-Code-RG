@@ -1,3 +1,4 @@
+# checkov:skip=CKV2_AZURE_1 reason="CMK encryption not required for this storage account"
 resource "azurerm_storage_account" "STG" {
   name                     = var.storage_account_name
   resource_group_name      = var.resource_group_name
