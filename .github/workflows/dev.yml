@@ -1,0 +1,19 @@
+name: "Infra Pipeline"
+
+on: workflow_dispatch
+
+jobs:
+  terraform-init-plan:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6.0.2
+
+    - name: Azure Login
+      uses: Azure/login@v3
+      with:
+        client-id: 5723faff-5a37-49fa-816c-0e9d629be84a
+        tenant-id: 367042db-6417-4fd4-87d7-0e53098282ea
+        subscription-id: 39ec1d26-d4aa-4028-a43f-96c0050f5eae
+
+      
