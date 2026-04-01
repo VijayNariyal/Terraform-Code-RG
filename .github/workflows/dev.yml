@@ -20,6 +20,30 @@ jobs:
         client-id: c144e0fc-ff89-4036-874d-86d67b49a61e
         tenant-id: 367042db-6417-4fd4-87d7-0e53098282ea
         subscription-id: 39ec1d26-d4aa-4028-a43f-96c0050f5eae
+    
+    - name: Install Terraform
+      uses: little-core-labs/install-terraform@v2.0.0
+
+    - name: Terraform Init
+      id: init
+      run: terraform init -input=false
+
+    - name: Terraform fmt
+      id: fmt
+      run: terraform fmt -check
+      continue-on-error: true
+
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate -no-color
+    
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color -input=false
+      continue-on-error: true
+    
+        
+      
 
 
       
