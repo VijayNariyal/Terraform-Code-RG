@@ -75,7 +75,7 @@ jobs:
 
     - name: Terraform Apply
       id: apply
-      run: terraform apply -input=false
+      run: terraform apply --auto-approve
       working-directory: ./Prod
 
         
