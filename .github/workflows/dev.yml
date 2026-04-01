@@ -22,27 +22,31 @@ jobs:
         subscription-id: 39ec1d26-d4aa-4028-a43f-96c0050f5eae
     
     - name: Install Terraform
-      uses: little-core-labs/install-terraform@v2.0.0
+      uses: hashicorp/setup-terraform@v4
       with:
-        version: 1.14.8
+        terraform_version: "1.14.6"
 
     - name: Terraform Init
       id: init
       run: terraform init -input=false
+      working-directory: ./Prod
 
     - name: Terraform fmt
       id: fmt
       run: terraform fmt -check
       continue-on-error: true
+      working-directory: ./Prod
 
     - name: Terraform Validate
       id: validate
       run: terraform validate -no-color
+      working-directory: ./Prod
     
     - name: Terraform Plan
       id: plan
       run: terraform plan -no-color -input=false
       continue-on-error: true
+      working-directory: ./Prod
     
         
       
